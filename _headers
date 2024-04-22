@@ -1,0 +1,6 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js https://local.adguard.org/ https://www.clarity.ms/tag/lasfw33x45; style-src 'report-sample' 'self' https://fonts.googleapis.com; object-src 'none'; base-uri 'self'; connect-src 'self' https://api.example.com; font-src 'self' data: https://fonts.gstatic.com; frame-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; worker-src 'none';
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+
