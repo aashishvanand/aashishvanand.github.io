@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+import { LinkedIn, GitHub, Twitter } from './SocialIcons';
 
 export default function MobileNavigation() {
     const [isOpen, setIsOpen] = useState(false);
@@ -108,13 +109,13 @@ export default function MobileNavigation() {
                                 <h3 className="text-sm text-medium">Connect</h3>
                                 <div className="social-links">
                                     <a href="https://www.linkedin.com/in/aashishvanand/" target="_blank" rel="noopener noreferrer">
-                                        <Image src="/images/linkedin.png" width={24} height={24} alt="LinkedIn" />
+                                        <LinkedIn size={24} />
                                     </a>
                                     <a href="https://github.com/aashishvanand" target="_blank" rel="noopener noreferrer">
-                                        <Image src="/images/github.png" width={24} height={24} alt="GitHub" />
+                                        <GitHub size={24} />
                                     </a>
                                     <a href="https://x.com/aashishvanand" target="_blank" rel="noopener noreferrer">
-                                        <Image src="/images/twitter-alt.png" width={24} height={24} alt="Twitter" />
+                                        <Twitter size={24} />
                                     </a>
                                 </div>
                             </div>

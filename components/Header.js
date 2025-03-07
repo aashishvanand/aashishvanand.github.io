@@ -4,16 +4,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ThemeContext } from './ThemeToggle';
 import { Sun, Moon } from 'lucide-react';
+import {
+    LinkedIn,
+    GitHub,
+    StackOverflow,
+    NPM,
+    Facebook,
+    Twitter,
+    Instagram,
+    ArrowUpRight
+} from './SocialIcons';
 
 export default function Header() {
     const heroImgRef = useRef(null);
-    // Correctly destructure both theme and toggleTheme from the context
     const { theme, toggleTheme } = useContext(ThemeContext);
-
-    // Determine which profile image to use based on theme
     const profileImageSrc = theme === 'dark'
-        ? '/images/profile_dark.jpg'
-        : '/images/profile.jpg';
+    ? '/images/profile-dark.jpg'
+    : '/images/profile-light.jpg';
 
     // Mouse move effect for the hero image
     useEffect(() => {
@@ -70,7 +77,7 @@ export default function Header() {
                                 className="btn display-none-mob"
                             >
                                 <div>Drop an Email</div>
-                                <Image src="/images/arrow-up-right.svg" width={20} height={20} alt="Arrow icon" className="btn-icon-r" />
+                                <ArrowUpRight size={20} />
                             </Link>
                         </div>
                     </div>
@@ -145,7 +152,7 @@ export default function Header() {
                                     className="btn"
                                 >
                                     <div>LinkedIn</div>
-                                    <Image src="/images/linkedin.png" width={20} height={20} alt="linkedin icon" className="btn-icon-r" />
+                                    <LinkedIn size={20} className="btn-icon-r" />
                                 </motion.a>
 
                                 <motion.a
@@ -158,7 +165,7 @@ export default function Header() {
                                     className="btn"
                                 >
                                     <div>Github</div>
-                                    <Image src="/images/github.png" width={20} height={20} alt="github icon" className="btn-icon-r" />
+                                    <GitHub size={20} className="btn-icon-r" />
                                 </motion.a>
 
                                 <motion.a
@@ -171,7 +178,7 @@ export default function Header() {
                                     className="btn"
                                 >
                                     <div>StackOverflow</div>
-                                    <Image src="/images/stack-overflow.png" width={20} height={20} alt="stackoverflow icon" className="btn-icon-r" />
+                                    <StackOverflow size={20} className="btn-icon-r" />
                                 </motion.a>
 
                                 <motion.a
@@ -184,7 +191,7 @@ export default function Header() {
                                     className="btn"
                                 >
                                     <div>npm</div>
-                                    <Image src="/images/outline.png" width={20} height={20} alt="npm icon" className="btn-icon-r" />
+                                    <NPM size={20} className="btn-icon-r" />
                                 </motion.a>
                             </header>
 
@@ -199,7 +206,7 @@ export default function Header() {
                                     className="btn"
                                 >
                                     <div>Facebook</div>
-                                    <Image src="/images/facebook.png" width={20} height={20} alt="facebook icon" className="btn-icon-r" />
+                                    <Facebook size={20} className="btn-icon-r" />
                                 </motion.a>
 
                                 <motion.a
@@ -212,7 +219,7 @@ export default function Header() {
                                     className="btn"
                                 >
                                     <div>Twitter</div>
-                                    <Image src="/images/twitter-alt.png" width={20} height={20} alt="twitter icon" className="btn-icon-r" />
+                                    <Twitter size={20} className="btn-icon-r" />
                                 </motion.a>
 
                                 <motion.a
@@ -225,7 +232,7 @@ export default function Header() {
                                     className="btn"
                                 >
                                     <div>Instagram</div>
-                                    <Image src="/images/instagram.png" width={20} height={20} alt="instagram icon" className="btn-icon-r" />
+                                    <Instagram size={20} className="btn-icon-r" />
                                 </motion.a>
                             </div>
                         </div>
@@ -233,16 +240,26 @@ export default function Header() {
                         <div className="content">
                             <div className="hero-img-content">
                                 <div className="hero-image-wrap">
-                                    <motion.img
+                                    <motion.div
                                         ref={heroImgRef}
-                                        className="hero-img"
-                                        src={profileImageSrc}
-                                        alt="Aashish Image"
                                         initial={{ scale: 1.2 }}
                                         animate={{ scale: 1 }}
                                         transition={{ duration: 2.4, delay: 1.9 }}
-                                        style={{ transformStyle: 'preserve-3d' }}
-                                    />
+                                        style={{ transformStyle: 'preserve-3d', position: 'relative', width: '100%', aspectRatio: '1/1' }}
+                                    >
+                                        <img
+                                            src={profileImageSrc}
+                                            alt="Aashish Vivekanand"
+                                            className="hero-img"
+                                            srcSet={`
+        ${profileImageSrc.replace('.jpg', '-500.jpg')} 500w,
+        ${profileImageSrc.replace('.jpg', '-800.jpg')} 800w,
+        ${profileImageSrc.replace('.jpg', '-1080.jpg')} 1080w
+      `}
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            loading="eager"
+                                        />
+                                    </motion.div>
                                 </div>
                             </div>
                         </div>

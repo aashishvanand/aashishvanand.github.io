@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import { ThemeContext } from './ThemeToggle';
 
 export default function Preloader() {
+    const { theme } = useContext(ThemeContext) || { theme: 'light' };
+    
+    // Determine colors based on theme
+    const backgroundColor = theme === 'dark' ? '#1a1a2e' : '#f2e4d5';
+    const textColor = theme === 'dark' ? '#ffffff' : '#131520'; // Using grey-900 from your variables
+
     return (
         <motion.div
             className="preloader"
@@ -12,7 +20,7 @@ export default function Preloader() {
                 position: 'fixed',
                 inset: '0%',
                 zIndex: 9999,
-                backgroundColor: '#f2e4d5',
+                backgroundColor: backgroundColor,
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -40,6 +48,7 @@ export default function Preloader() {
                                 ease: [0.19, 1, 0.22, 1]
                             }
                         }}
+                        style={{ color: textColor }}
                     >
                         Aashish
                     </motion.div>
@@ -83,6 +92,7 @@ export default function Preloader() {
                                     ease: [0.19, 1, 0.22, 1]
                                 }
                             }}
+                            style={{ color: textColor }}
                         >
                             Vivekanand
                         </motion.div>

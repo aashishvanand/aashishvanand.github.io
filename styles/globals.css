@@ -802,3 +802,23 @@ body, a, button, .btn {
 a, button, .btn {
   cursor: pointer; /* Use pointer cursor for interactive elements */
 }
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Consistent spacing between text and icon */
+}
+.btn-icon-r {
+  margin-left: 4px; /* You can remove this if you're using gap */
+}
+
+/* This targets specifically the social media buttons to ensure consistent spacing */
+.row-btns .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Uniform spacing between text and icon */
+}
+
+.btn > span {
+  margin-right: 4px;
+}
