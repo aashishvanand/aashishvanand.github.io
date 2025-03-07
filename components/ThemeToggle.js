@@ -35,17 +35,22 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     if (!mounted) return;
     
+    console.log("Theme changed to:", theme); // Debugging log
+    
     if (theme === 'dark') {
       document.documentElement.classList.add('dark-mode');
+      document.body.classList.add('dark-mode');
       localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark-mode');
+      document.body.classList.remove('dark-mode');
       localStorage.setItem('theme', 'light');
     }
   }, [theme, mounted]);
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    console.log("Toggling theme from:", theme); // Debugging log
+    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
 
   return (

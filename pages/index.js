@@ -44,8 +44,8 @@ export default function Home() {
                         initial={{ opacity: 0, y: 50 }}
                         animate={aboutControls}
                     >
-                        I am an accomplished cybersecurity and software engineering professional with a strong foundation in Computer Science Engineering from Anna University, Chennai. Currently excelling as a Senior Software Engineer at Proxtera, I lead
-                        the development of secure, robust microservices and serverless APIs, focusing on IAM network security and data encryption.
+                        I am a seasoned cybersecurity engineering professional with a strong foundation in Computer Science Engineering from Anna University, Chennai. I currently serve as a Cybersecurity Engineer at Cloudflare, where I specialize in incident 
+                        response, network and cloud security, and threat mitigation.
                     </motion.p>
 
                     <motion.p
@@ -53,8 +53,8 @@ export default function Home() {
                         initial={{ opacity: 0, y: 50 }}
                         animate={aboutControls}
                     >
-                        As a distinguished Android Security expert, I have made significant strides in cloud and network security. My expertise extends to digital signature solutions and advanced serverless web application development, with a keen emphasis
-                        on internal security audits.
+                        My bug bounty achievements showcase my deep technical expertise and proactive approach to security. I have identified and reported critical vulnerabilities to leading organizations, including Google, Jio, IATA, HomeCentre Landmark Group India,
+                        Mettl, and Singapore&#x27;s LumiHealth app. In recognition of my discovery of a high-impact privacy vulnerability, I have been ranked #1 in Singapore and #865 globally on the Google Bug Hunters Leaderboard.
                     </motion.p>
 
                     <motion.p
@@ -63,8 +63,8 @@ export default function Home() {
                         animate={aboutControls}
                         className="paragraph"
                     >
-                        My commitment to cybersecurity shines through my impressive bug bounty achievements. I have actively identified and reported critical vulnerabilities to several organizations, including Jio, HomeCentre Landmark Group India, Mettl,
-                        and Singapore&#x27;s LumiHealth app. My proactive approach to uncovering and addressing complex security risks underscores my exceptional skills in cybersecurity.
+                        Beyond security research, I have secured first-place wins in cybersecurity hackathons and have been recognized in multiple Hall of Fames for my contributions to digital security. My passion for cybersecurity is evident in my continuous learning, 
+                        active participation in security communities, and pursuit of cutting-edge certifications.
                     </motion.p>
                 </article>
             </section>

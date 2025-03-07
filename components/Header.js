@@ -1,12 +1,21 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ThemeContext } from './ThemeToggle';
+import { Sun, Moon } from 'lucide-react';
 
 export default function Header() {
     const heroImgRef = useRef(null);
+    // Correctly destructure both theme and toggleTheme from the context
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
-    // Recreate the mouse move effect for the hero image
+    // Determine which profile image to use based on theme
+    const profileImageSrc = theme === 'dark'
+        ? '/images/profile_dark.jpg'
+        : '/images/profile.jpg';
+
+    // Mouse move effect for the hero image
     useEffect(() => {
         const handleMouseMove = (e) => {
             if (!heroImgRef.current) return;
@@ -32,6 +41,7 @@ export default function Header() {
         };
     }, []);
 
+
     return (
         <header className="header">
             <div className="navigation" role="banner">
@@ -42,6 +52,19 @@ export default function Header() {
                             <div className="text-xl text-medium">Aashish Vivekanand</div>
                         </div>
                         <div className="row-btns">
+                            {/* Theme Toggle Button */}
+                            <button
+                                onClick={toggleTheme}
+                                className="btn theme-btn"
+                                aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+                            >
+                                {theme === 'light' ? (
+                                    <Moon size={20} />
+                                ) : (
+                                    <Sun size={20} />
+                                )}
+                            </button>
+
                             <Link
                                 href="mailto:aashishvanand@gmail.com?subject=Personal%20Message%20via%20Portfolio"
                                 className="btn display-none-mob"
@@ -213,7 +236,7 @@ export default function Header() {
                                     <motion.img
                                         ref={heroImgRef}
                                         className="hero-img"
-                                        src="/images/profile.jpg"
+                                        src={profileImageSrc}
                                         alt="Aashish Image"
                                         initial={{ scale: 1.2 }}
                                         animate={{ scale: 1 }}
