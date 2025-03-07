@@ -659,3 +659,128 @@ img {
     padding-top: 48px;
   }
 }
+
+/* Dark mode variables */
+:root {
+  /* Light mode variables */
+  --bg-color: #f2e4d5;
+  --text-color: #131520;
+  --card-bg: #ffffff;
+  --btn-bg: rgba(255, 255, 255, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-color: #ecedf3;
+  --highlight-color: #9061f9;
+}
+
+/* Dark mode class added to html element */
+.dark-mode {
+  --bg-color: #1a1a2e;
+  --text-color: #f0f0f0;
+  --card-bg: #16213e;
+  --btn-bg: rgba(30, 41, 59, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --border-color: #30354f;
+  --highlight-color: #9061f9;
+}
+
+/* Apply variables */
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, .text-grey-900, .display-xl, .display-lg, .display-md, .display-sm, .display-xs, .text-xl, .text-lg, .text-md, .text-sm, .text-xs {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+a {
+  color: var(--text-color);
+}
+
+.btn {
+  color: var(--text-color);
+  background-color: var(--btn-bg);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.row-split-content {
+  border-color: var(--border-color);
+}
+
+/* Add subtle transitions for everything */
+* {
+  transition-property: background-color, color, border-color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Enhanced focus styles for accessibility */
+:focus {
+  outline: 2px solid var(--highlight-color);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--highlight-color);
+  outline-offset: 2px;
+}
+
+/* Enhanced card styling */
+.row-split-content {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  padding: 24px;
+  margin-bottom: 32px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.row-split-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px var(--shadow-color);
+}
+
+/* Improved typography contrast */
+.dark-mode p, .dark-mode .text-md, .dark-mode .text-sm {
+  color: rgba(240, 240, 240, 0.9);
+}
+
+/* Smooth transitions for all animations */
+.animation-wrapper {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-radius: 50%;
+  border-top-color: var(--highlight-color);
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Media queries adjustments for dark mode */
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

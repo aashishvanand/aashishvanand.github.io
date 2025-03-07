@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-export default function Button({ href, children, icon, target, className = '', delay = 0 }) {
-    const buttonMotion = {
+export default function EnhancedButton({ href, children, icon, target, className = '', delay = 0 }) {
+    const buttonVariants = {
         initial: {
             opacity: 0,
             y: 50
@@ -16,25 +16,33 @@ export default function Button({ href, children, icon, target, className = '', d
                 delay: delay
             }
         },
-        whileHover: {
+        hover: {
             scale: 1.05,
-            transition: { duration: 0.2 }
+            boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            transition: { duration: 0.3, ease: 'easeOut' }
+        },
+        tap: {
+            scale: 0.98,
+            backgroundColor: 'rgba(255, 255, 255, 0.15)',
+            transition: { duration: 0.1 }
         }
     };
 
-    const iconMotion = {
-        whileHover: {
+    const iconVariants = {
+        hover: {
             x: 4,
             y: -4,
-            transition: { duration: 0.2 }
+            rotate: 5,
+            transition: { duration: 0.3, ease: 'easeOut' }
         }
     };
 
     const buttonContent = (
         <>
-            <div>{children}</div>
+            <motion.div>{children}</motion.div>
             {icon && (
-                <motion.div className="btn-icon-r" variants={iconMotion}>
+                <motion.div className="btn-icon-r" variants={iconVariants}>
                     <Image src={icon} width={20} height={20} alt="icon" />
                 </motion.div>
             )}
@@ -47,10 +55,11 @@ export default function Button({ href, children, icon, target, className = '', d
             target={target}
             rel={target === '_blank' ? 'noopener noreferrer' : undefined}
             className={`btn ${className}`}
-            variants={buttonMotion}
+            variants={buttonVariants}
             initial="initial"
             animate="animate"
-            whileHover="whileHover"
+            whileHover="hover"
+            whileTap="tap"
         >
             {buttonContent}
         </motion.a>

@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
 import Preloader from './Preloader';
+import ScrollProgressIndicator from './ScrollProgressIndicator';
+import MobileNavigation from './MobileNavigation';
 
 export default function Layout({ children }) {
     const [loading, setLoading] = useState(true);
@@ -22,6 +24,9 @@ export default function Layout({ children }) {
                 {loading && <Preloader />}
             </AnimatePresence>
 
+            <ScrollProgressIndicator />
+            <MobileNavigation />
+
             <motion.div
                 className="page-wrap"
                 initial={{ opacity: 0 }}
@@ -31,11 +36,33 @@ export default function Layout({ children }) {
                 }}
             >
                 <Header />
-                <main className="main">
+                <main id="main-content" role="main" className="main">
                     {children}
                 </main>
                 <Footer />
             </motion.div>
+            
+            {/* Skip to content link for accessibility */}
+            <a href="#main-content" className="skip-to-content">
+                Skip to content
+            </a>
+            
+            <style jsx global>{`
+                .skip-to-content {
+                    position: absolute;
+                    top: -40px;
+                    left: 0;
+                    background: var(--primary-500);
+                    color: white;
+                    padding: 8px;
+                    z-index: 1001;
+                    transition: top 0.3s;
+                }
+                
+                .skip-to-content:focus {
+                    top: 0;
+                }
+            `}</style>
         </>
     );
 }

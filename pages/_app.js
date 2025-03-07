@@ -1,5 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import '../styles/globals.css';
+import { ThemeProvider } from '../components/ThemeToggle';
+import LoadingSpinner from '../components/LoadingSpinner';
+import dynamic from 'next/dynamic';
+
+// Dynamically import components with no SSR
+const CustomCursor = dynamic(() => import('../components/CustomCursor'), { ssr: false });
+const ThemeToggle = dynamic(() => import('../components/ThemeToggle'), { ssr: false });
 
 export default function MyApp({ Component, pageProps }) {
     useEffect(() => {
@@ -22,5 +29,13 @@ export default function MyApp({ Component, pageProps }) {
         });
     }, []);
 
-    return <Component {...pageProps} />;
+    return (
+        <ThemeProvider>
+            <Component {...pageProps} />
+            <Suspense fallback={<LoadingSpinner />}>
+                <CustomCursor />
+                <ThemeToggle />
+            </Suspense>
+        </ThemeProvider>
+    );
 }
