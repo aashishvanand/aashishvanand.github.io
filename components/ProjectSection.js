@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 
-export default function ProjectSection({ title, children, delay = 0.2 }) {
+export default function ProjectSection({ title, children, delay = 0.2, id }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
     const controls = useAnimation();
@@ -23,6 +23,7 @@ export default function ProjectSection({ title, children, delay = 0.2 }) {
     return (
         <motion.section
             ref={ref}
+            id={id}
             className="section pb-0"
             initial={{ opacity: 0, y: 100 }}
             animate={controls}

@@ -28,7 +28,7 @@ export default function Home() {
         <Layout>
             <SEO />
 
-            <section className="section" ref={aboutRef}>
+            <section className="section" ref={aboutRef} id="about">
                 <article className="container">
                     <motion.h2
                         custom={0}
@@ -69,7 +69,7 @@ export default function Home() {
                 </article>
             </section>
 
-            <ProjectSection title="Experience">
+            <ProjectSection title="Experience" id="experience">
                 <div className="row row-split-content">
                     <div className="text-medium mb-32">Aug 2024 – Current</div>
                     <h3 className="display-sm"><a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer" className="link-no-underline">Cloudflare</a></h3>
@@ -112,7 +112,7 @@ export default function Home() {
                 </div>
             </ProjectSection>
 
-            <ProjectSection title="Libraries &amp; Apps" delay={0.3}>
+            <ProjectSection title="Libraries &amp; Apps" delay={0.3} id="projects">
                 <div className="row row-split-content">
                     <h3><a href="https://ccreward.app/" target="_blank" rel="noopener noreferrer" className="link-no-underline">ccreward.app</a></h3>
                     <div className="display-xs">NextJS Webapp</div>
@@ -140,7 +140,7 @@ export default function Home() {
                 </div>
             </ProjectSection>
 
-            <ProjectSection title="Bounties" delay={0.4}>
+            <ProjectSection title="Bounties" delay={0.4} id="bounties">
                 <div className="row row-split-content">
                     <h3><a href="https://bughunters.google.com/leaderboard/honorable-mentions" target="_blank" rel="noopener noreferrer" className="link-no-underline">Google</a></h3>
                     <p className="paragraph">Ranked 2nd in Singapore and 865th globally on the Bug Hunters Leaderboard for identifying a significant privacy issue, classified as Priority P2 and Severity S2, with details currently under private disclosure.<br /></p>

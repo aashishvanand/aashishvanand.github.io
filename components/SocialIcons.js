@@ -51,9 +51,27 @@ export const GitHub = ({ size = 20, color = "currentColor" }) => {
 export const StackOverflow = ({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
-        <svg width={size} height={size} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-            <path d="M512 64C264.736 64 64 264.704 64 512c0 247.264 200.736 448 448 448 247.296 0 448-200.736 448-448 0-247.296-200.224-448-448-448z" fill={color === "currentColor" ? iconColor : color} />
-            <path d="M695.232 435.84l-146.016-196.672 39.36-29.12 146.08 196.672z m16.16 323.424H270.56v-196.16H319.36v146.912h342.72v-146.944h48.8v196.192zM368.64 661.184h245.056v-48.832H368.64z m14.816-159.488l239.648 50.176-9.856 47.936-239.68-50.176z m42.528-111.104l222.208 103.488-21.056 44.352-221.76-103.488z m72.16-102.144l188.16 156.8-31.392 37.632-188.16-156.8z" fill="white" />
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 1024 1024"
+            fill={color === "currentColor" ? iconColor : color}
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="
+            M512 64
+            c-247.424 0-448 200.576-448 448s200.576 448 448 448 448-200.576 448-448-200.576-448-448-448z
+            M695.232 435.84l-146.016-196.672 39.36-29.12 146.08 196.672z
+            m16.16 323.424H270.56v-196.16H319.36v146.912h342.72v-146.944h48.8v196.192z
+            M368.64 661.184h245.056v-48.832H368.64z
+            m14.816-159.488l239.648 50.176-9.856 47.936-239.68-50.176z
+            m42.528-111.104l222.208 103.488-21.056 44.352-221.76-103.488z
+            m72.16-102.144l188.16 156.8-31.392 37.632-188.16-156.8z
+          "
+            />
         </svg>
     );
 };
@@ -61,9 +79,22 @@ export const StackOverflow = ({ size = 20, color = "currentColor" }) => {
 export const NPM = ({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
-        <svg width={size} height={size} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="512" cy="512" r="512" fill={color === "currentColor" ? iconColor : color} />
-            <path d="M407.26 599.29h69.83v-34.92h69.83V424.71H407.26zm69.83-139.66H512v69.83h-34.91zm97.76-34.91v139.65h69.83V459.63h34.91v104.74h34.91V459.63h34.91v104.74h34.91V424.71zM239.67 564.37h69.83V459.63h34.91v104.74h34.91V424.71H239.67z" fill="white" />
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 1024 1024"
+            fill={color === "currentColor" ? iconColor : color}
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="
+            M512 64
+            c-247.424 0-448 200.576-448 448s200.576 448 448 448 448-200.576 448-448-200.576-448-448-448z
+            M407.26 599.29h69.83v-34.92h69.83V424.71H407.26zm69.83-139.66H512v69.83h-34.91zm97.76-34.91v139.65h69.83V459.63h34.91v104.74h34.91V459.63h34.91v104.74h34.91V424.71H239.67v69.83h69.83V459.63h34.91v104.74h34.91V424.71z
+          "
+            />
         </svg>
     );
 };
