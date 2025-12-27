@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeContext } from './ThemeToggle';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, Close, LightMode, DarkMode } from '@mui/icons-material';
 import Image from 'next/image';
 import { LinkedIn, GitHub, Twitter } from './SocialIcons';
 
@@ -84,9 +84,9 @@ export default function MobileNavigation() {
                     aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
                 >
                     {theme === 'light' ? (
-                        <Moon size={20} />
+                        <DarkMode sx={{ fontSize: 20 }} />
                     ) : (
-                        <Sun size={20} />
+                        <LightMode sx={{ fontSize: 20 }} />
                     )}
                 </button>
 
@@ -95,7 +95,7 @@ export default function MobileNavigation() {
                     onClick={toggleMenu}
                     aria-label={isOpen ? 'Close menu' : 'Open menu'}
                 >
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isOpen ? <Close sx={{ fontSize: 24 }} /> : <Menu sx={{ fontSize: 24 }} />}
                 </button>
             </div>
 
@@ -126,7 +126,7 @@ export default function MobileNavigation() {
                                     onClick={toggleMenu}
                                     aria-label="Close menu"
                                 >
-                                    <X size={24} />
+                                    <Close sx={{ fontSize: 24 }} />
                                 </button>
                             </div>
 

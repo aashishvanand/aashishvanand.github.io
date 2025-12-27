@@ -1,30 +1,30 @@
 import { useState, useEffect, createContext, useContext } from 'react';
 import { motion } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
+import { LightMode, DarkMode } from '@mui/icons-material';
 
 // Create Theme Context
 export const ThemeContext = createContext({
   theme: 'light',
-  toggleTheme: () => {}
+  toggleTheme: () => { }
 });
 
 // Theme Provider Component
 export function ThemeProvider({ children }) {
   // Start with light theme by default for SSR
   const [theme, setTheme] = useState('light');
-  
+
   // Flag to track if component has mounted
   const [mounted, setMounted] = useState(false);
-  
+
   useEffect(() => {
     // Mark component as mounted
     setMounted(true);
-    
+
     // Check for user's preferred color scheme
-    const userPrefersDark = window.matchMedia && 
+    const userPrefersDark = window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('theme');
-    
+
     if (savedTheme) {
       setTheme(savedTheme);
     } else if (userPrefersDark) {
@@ -34,9 +34,9 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     if (!mounted) return;
-    
+
     console.log("Theme changed to:", theme); // Debugging log
-    
+
     if (theme === 'dark') {
       document.documentElement.classList.add('dark-mode');
       document.body.classList.add('dark-mode');
@@ -64,17 +64,17 @@ export function ThemeProvider({ children }) {
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [mounted, setMounted] = useState(false);
-  
+
   // After mounting, we have access to the theme
   useEffect(() => {
     setMounted(true);
   }, []);
-  
+
   // Avoid rendering the toggle until after mounting to prevent hydration mismatch
   if (!mounted) {
     return null;
   }
-  
+
   return (
     <motion.button
       className="theme-toggle-btn"
@@ -83,9 +83,9 @@ export default function ThemeToggle() {
       whileTap={{ scale: 0.9 }}
     >
       {theme === 'light' ? (
-        <Moon size={20} />
+        <DarkMode sx={{ fontSize: 20 }} />
       ) : (
-        <Sun size={20} />
+        <LightMode sx={{ fontSize: 20 }} />
       )}
       <style jsx>{`
         .theme-toggle-btn {

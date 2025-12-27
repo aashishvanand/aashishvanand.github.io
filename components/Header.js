@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ThemeContext } from './ThemeToggle';
-import { Sun, Moon } from 'lucide-react';
+import { LightMode, DarkMode } from '@mui/icons-material';
 import {
     LinkedIn,
     GitHub,
@@ -19,8 +19,8 @@ export default function Header() {
     const heroImgRef = useRef(null);
     const { theme, toggleTheme } = useContext(ThemeContext);
     const profileImageSrc = theme === 'dark'
-    ? '/images/profile-dark.jpg'
-    : '/images/profile-light.jpg';
+        ? '/images/profile-dark.jpg'
+        : '/images/profile-light.jpg';
 
     // Mouse move effect for the hero image
     useEffect(() => {
@@ -66,9 +66,9 @@ export default function Header() {
                                 aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
                             >
                                 {theme === 'light' ? (
-                                    <Moon size={20} />
+                                    <DarkMode sx={{ fontSize: 20 }} />
                                 ) : (
-                                    <Sun size={20} />
+                                    <LightMode sx={{ fontSize: 20 }} />
                                 )}
                             </button>
 
@@ -117,19 +117,19 @@ export default function Header() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 1.5, delay: 1.9 }}
                                 >
-                                    I'm
+                                    I&apos;m
                                 </motion.div>
                             </div>
 
                             <div className="header-text-wrap btm">
-                                <motion.div
+                                <motion.h1
                                     className="display-xl"
                                     initial={{ opacity: 0, y: '100%' }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 1.5, delay: 1.9 }}
                                 >
                                     Aashish Vivekanand
-                                </motion.div>
+                                </motion.h1>
                             </div>
 
                             <motion.div
@@ -247,6 +247,7 @@ export default function Header() {
                                         transition={{ duration: 2.4, delay: 1.9 }}
                                         style={{ transformStyle: 'preserve-3d', position: 'relative', width: '100%', aspectRatio: '1/1' }}
                                     >
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img
                                             src={profileImageSrc}
                                             alt="Aashish Vivekanand"
@@ -266,6 +267,6 @@ export default function Header() {
                     </div>
                 </div>
             </section>
-        </header>
+        </header >
     );
 }

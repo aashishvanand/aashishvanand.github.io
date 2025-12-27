@@ -44,8 +44,7 @@ export default function Home() {
                         initial={{ opacity: 0, y: 50 }}
                         animate={aboutControls}
                     >
-                        I am a seasoned cybersecurity engineering professional with a strong foundation in Computer Science Engineering from Anna University, Chennai. I currently serve as a Cybersecurity Engineer at Cloudflare, where I specialize in incident 
-                        response, network and cloud security, and threat mitigation.
+                        I am a Cybersecurity Engineer at Cloudflare, specializing in incident response, network security, and threat mitigation. I recently graduated with an MSc in Cyber Security from the University of London, building upon my Computer Science bachelors from Anna University, Chennai.
                     </motion.p>
 
                     <motion.p
@@ -53,8 +52,7 @@ export default function Home() {
                         initial={{ opacity: 0, y: 50 }}
                         animate={aboutControls}
                     >
-                        My bug bounty achievements showcase my deep technical expertise and proactive approach to security. I have identified and reported critical vulnerabilities to leading organizations, including Google, Jio, IATA, HomeCentre Landmark Group India,
-                        Mettl, and Singapore&#x27;s LumiHealth app. In recognition of my discovery of a high-impact privacy vulnerability, I have been ranked #1 in Singapore and #865 globally on the Google Bug Hunters Leaderboard.
+                        My approach to security is proactive. By actively researching vulnerabilities in my spare time, I stay ahead of emerging threats to better protect the systems I manage. This dedication has ranked me #2 in Singapore and #907 globally on the Google Bug Hunters Leaderboard.
                     </motion.p>
 
                     <motion.p
@@ -63,8 +61,7 @@ export default function Home() {
                         animate={aboutControls}
                         className="paragraph"
                     >
-                        Beyond security research, I have secured first-place wins in cybersecurity hackathons and have been recognized in multiple Hall of Fames for my contributions to digital security. My passion for cybersecurity is evident in my continuous learning, 
-                        active participation in security communities, and pursuit of cutting-edge certifications.
+                        I have identified and reported critical vulnerabilities to organizations like Google, Jio, IATA, and Singapore&#x27;s LumiHealth. Whether I am mitigating active threats or researching new ones, my goal remains the same: building a safer digital environment.
                     </motion.p>
                 </article>
             </section>
@@ -81,7 +78,7 @@ export default function Home() {
                     <div className="text-medium mb-32">May 2022 – July 2024</div>
                     <h3 className="display-sm"><a href="https://proxtera.com/" target="_blank" rel="noopener noreferrer" className="link-no-underline">Proxtera Pte Ltd</a> </h3>
                     <div className="display-xs">Senior Software Engineer</div>
-                    <p className="paragraph">Architected and implemented microservices and serverless APIs for Proxtera Connect, focusing on robust Identity and Access Management (IAM), network security, and data encryption. I led the integration of Proxtera's digital commerce
+                    <p className="paragraph">Architected and implemented microservices and serverless APIs for Proxtera Connect, focusing on robust Identity and Access Management (IAM), network security, and data encryption. I led the integration of Proxtera&apos;s digital commerce
                         offerings with ONDC API and printed the first international trade for a customer. I worked on integrating Singpass and MyInfoBiz APIs to retrieve personal and business data for SME verification in Singapore. Built key components
                         of the SME Financial Empowerment (SMEFE) platform, enhancing financial tools and knowledge for customers. Engaged in R&amp;D for the Monetary Authority of Singapore&#x27;s Financial Transparency Corridor (FTC) pilot, focusing
                         on improved financial transparency and trade connectivity.<br /></p>
@@ -115,7 +112,7 @@ export default function Home() {
             <ProjectSection title="Libraries &amp; Apps" delay={0.3} id="projects">
                 <div className="row row-split-content">
                     <h3><a href="https://ccreward.app/" target="_blank" rel="noopener noreferrer" className="link-no-underline">ccreward.app</a></h3>
-                    <div className="display-xs">NextJS Webapp</div>
+                    <div className="display-xs">iOS App, Android App & NextJS Webapp</div>
                     <p className="paragraph">a web app that helps users maximize credit card rewards by providing personalized card comparisons based on spending patterns and merchant codes. Built with Next.js, it ensures privacy by performing all calculations on the user&#x27;s
                         device, with optional anonymous sign-up.<br /></p>
                 </div>
@@ -217,14 +214,14 @@ export default function Home() {
 
             <ProjectSection title="Education" delay={0.7}>
                 <div className="row row-split-content">
-                    <div className="text-medium mb-32">Sep 2023 – May 2025*</div>
+                    <div className="text-medium mb-32">Sep 2023 – May 2025</div>
                     <h3 className="display-sm link-no-underline"><a href="https://www.london.ac.uk/" target="_blank" rel="noopener noreferrer" className="link-no-underline">University of London</a></h3>
                     <div className="display-xs">MSc in Cybersecurity</div>
                 </div>
 
                 <div className="row row-split-content">
                     <div className="text-medium mb-32">Jul 2013 – May 2017</div>
-                    <h3 className="display-sm">Anna Univeristy</h3>
+                    <h3 className="display-sm link-no-underline"><a href="https://www.annauniv.edu/" target="_blank" rel="noopener noreferrer" className="link-no-underline">Anna University</a></h3>
                     <div className="display-xs">BE in Computer Science</div>
                 </div>
             </ProjectSection>

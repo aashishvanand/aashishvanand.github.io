@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useContext } from 'react';
 import { ThemeContext } from './ThemeToggle';
 
 export default function Preloader() {
     const { theme } = useContext(ThemeContext) || { theme: 'light' };
-    
+
     // Determine colors based on theme
     const backgroundColor = theme === 'dark' ? '#1a1a2e' : '#f2e4d5';
     const textColor = theme === 'dark' ? '#ffffff' : '#131520'; // Using grey-900 from your variables
@@ -68,7 +69,7 @@ export default function Preloader() {
                                 }
                             }}
                         >
-                            <img src="/images/line.svg" alt="" width="232" height="32" className="line" />
+                            <Image src="/images/line.svg" alt="" width={232} height={32} className="line" />
                         </motion.div>
                     </div>
                     <div className="preloader-text-wrap btm">
