@@ -6,27 +6,34 @@ export default function ProjectSection({ title, children, delay = 0.2, id }) {
     const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
     const controls = useAnimation();
 
+    const containerVariants = {
+        hidden: { opacity: 0, y: 100 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1.5,
+                ease: [0.19, 1, 0.22, 1],
+                delay: delay,
+                staggerChildren: 0.2
+            }
+        }
+    };
+
     useEffect(() => {
         if (isInView) {
-            controls.start({
-                opacity: 1,
-                y: 0,
-                transition: {
-                    duration: 1.5,
-                    ease: [0.19, 1, 0.22, 1],
-                    delay: delay
-                }
-            });
+            controls.start("visible");
         }
-    }, [isInView, controls, delay]);
+    }, [isInView, controls]);
 
     return (
         <motion.section
             ref={ref}
             id={id}
             className="section pb-0"
-            initial={{ opacity: 0, y: 100 }}
+            initial="hidden"
             animate={controls}
+            variants={containerVariants}
         >
             <div className="container">
                 <div className="display-lg">{title}</div>

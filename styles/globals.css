@@ -742,6 +742,9 @@ html.dark-mode .row-split-content a:hover {
 }
 
 @media screen and (max-width: 767px) {
+  .row.row-header {
+    grid-template-columns: 1fr;
+  }
   .display-lg {
     font-size: 1.875rem;
   }
@@ -863,7 +866,7 @@ html.dark-mode .paragraph {
 
 @media screen and (max-width: 767px) {
   .hero-img-content {
-    max-width: 250px;
+    max-width: 320px;
     margin: 0 auto 30px;
   }
 

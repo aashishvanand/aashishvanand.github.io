@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeContext } from './ThemeToggle';
 import { Menu, Close, LightMode, DarkMode } from '@mui/icons-material';
 import Image from 'next/image';
-import { LinkedIn, GitHub, Twitter } from './SocialIcons';
+import { LinkedIn, GitHub, Twitter, Blog, HackerOne } from './SocialIcons';
 
 export default function MobileNavigation() {
     const [isOpen, setIsOpen] = useState(false);
     const { theme, toggleTheme } = useContext(ThemeContext) || { theme: 'light', toggleTheme: () => { } };
+    const starSrc = theme === 'dark' ? '/images/star-light.svg' : '/images/star.svg';
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -118,7 +119,7 @@ export default function MobileNavigation() {
                         >
                             <div className="mobile-menu-header">
                                 <div className="logo">
-                                    <Image src="/images/star.svg" alt="Star icon" width={32} height={32} className="logo-icon" />
+                                    <Image src={starSrc} alt="Star icon" width={32} height={32} className="logo-icon" />
                                     <div className="text-xl text-medium">Aashish Vivekanand</div>
                                 </div>
                                 <button
@@ -154,6 +155,12 @@ export default function MobileNavigation() {
                                     </a>
                                     <a href="https://github.com/aashishvanand" target="_blank" rel="noopener noreferrer">
                                         <GitHub size={24} />
+                                    </a>
+                                    <a href="https://blog.aashishvanand.me" target="_blank" rel="noopener noreferrer">
+                                        <Blog size={24} />
+                                    </a>
+                                    <a href="https://hackerone.com/aashishvanand/badges?type=user" target="_blank" rel="noopener noreferrer">
+                                        <HackerOne size={24} />
                                     </a>
                                     <a href="https://x.com/aashishvanand" target="_blank" rel="noopener noreferrer">
                                         <Twitter size={24} />

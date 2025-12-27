@@ -69,7 +69,7 @@ export default function Preloader() {
                                 }
                             }}
                         >
-                            <Image src="/images/line.svg" alt="" width={232} height={32} className="line" />
+                            <Image src={theme === 'dark' ? '/images/line-light.svg' : '/images/line.svg'} alt="" width={232} height={32} className="line" />
                         </motion.div>
                     </div>
                     <div className="preloader-text-wrap btm">

@@ -12,7 +12,8 @@ import {
     Facebook,
     Twitter,
     Instagram,
-    ArrowUpRight
+    Blog,
+    HackerOne,
 } from './SocialIcons';
 
 export default function Header() {
@@ -21,6 +22,9 @@ export default function Header() {
     const profileImageSrc = theme === 'dark'
         ? '/images/profile-dark.jpg'
         : '/images/profile-light.jpg';
+
+    const starSrc = theme === 'dark' ? '/images/star-light.svg' : '/images/star.svg';
+    const arrowSrc = theme === 'dark' ? '/images/arrow-up-right-light.svg' : '/images/arrow-up-right.svg';
 
     // Mouse move effect for the hero image
     useEffect(() => {
@@ -55,7 +59,7 @@ export default function Header() {
                 <div className="container">
                     <div className="row row-justify-between">
                         <div className="logo">
-                            <Image src="/images/star.svg" alt="Star icon" width={32} height={32} className="logo-icon" />
+                            <Image src={starSrc} alt="Star icon" width={32} height={32} className="logo-icon" />
                             <div className="text-xl text-medium">Aashish Vivekanand</div>
                         </div>
                         <div className="row-btns">
@@ -77,7 +81,7 @@ export default function Header() {
                                 className="btn display-none-mob"
                             >
                                 <div>Drop an Email</div>
-                                <ArrowUpRight size={20} />
+                                <Image src={arrowSrc} width={20} height={20} alt="Arrow Up Right" />
                             </Link>
                         </div>
                     </div>
@@ -185,6 +189,32 @@ export default function Header() {
                                     initial={{ opacity: 0, y: '50%' }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 1.5, delay: 3.4 }}
+                                    href="https://blog.aashishvanand.me"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn"
+                                >
+                                    <div>Blog</div>
+                                    <Blog size={20} className="btn-icon-r" />
+                                </motion.a>
+
+                                <motion.a
+                                    initial={{ opacity: 0, y: '50%' }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 1.5, delay: 3.5 }}
+                                    href="https://hackerone.com/aashishvanand/badges?type=user"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn"
+                                >
+                                    <div>HackerOne</div>
+                                    <HackerOne size={20} className="btn-icon-r" />
+                                </motion.a>
+
+                                <motion.a
+                                    initial={{ opacity: 0, y: '50%' }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 1.5, delay: 3.6 }}
                                     href="https://www.npmjs.com/~aashishvanand"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -199,7 +229,7 @@ export default function Header() {
                                 <motion.a
                                     initial={{ opacity: 0, y: '50%' }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 1.5, delay: 3.6 }}
+                                    transition={{ duration: 1.5, delay: 3.8 }}
                                     href="https://www.facebook.com/aashishvanand"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -212,7 +242,7 @@ export default function Header() {
                                 <motion.a
                                     initial={{ opacity: 0, y: '50%' }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 1.5, delay: 3.6 }}
+                                    transition={{ duration: 1.5, delay: 3.8 }}
                                     href="https://x.com/aashishvanand"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -225,7 +255,7 @@ export default function Header() {
                                 <motion.a
                                     initial={{ opacity: 0, y: '50%' }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 1.5, delay: 3.6 }}
+                                    transition={{ duration: 1.5, delay: 3.8 }}
                                     href="https://www.instagram.com/aashishvanand/"
                                     target="_blank"
                                     rel="noopener noreferrer"
