@@ -1,11 +1,19 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "aashish-portfolio",
-  "compatibility_date": "2026-02-12",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_date": "2026-03-10",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "main": "./worker/index.ts",
   "assets": {
     "not_found_handling": "none",
     "binding": "ASSETS"
+  },
+  "observability": {
+    "logs": {
+      "enabled": false,
+      "invocation_logs": true
+    }
   }
 }
