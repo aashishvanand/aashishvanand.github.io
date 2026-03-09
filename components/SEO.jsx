@@ -10,11 +10,12 @@ export default function SEO() {
         <meta property="og:title" content="Aashish Vivekanand - Cyber Security Engineer @ Cloudflare | Network and Cloud Security" />
         <meta property="og:description" content="Aashish Vivekanand is a Network and Cloud Security engineer based in Singapore." />
         <meta property="og:image" content="https://aashishvanand.me/images/og_aashishvanand.jpg" />
-        <meta property="twitter:title" content="Aashish Vivekanand - Cyber Security Engineer @ Cloudflare | Network and Cloud Security" />
-        <meta property="twitter:description" content="Aashish Vivekanand is a Network and Cloud Security engineer based in Singapore." />
-        <meta property="twitter:image" content="https://aashishvanand.me/images/og_aashishvanand.jpg" />
+        <meta property="og:url" content="https://aashishvanand.me" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Aashish Vivekanand - Cyber Security Engineer @ Cloudflare | Network and Cloud Security" />
+        <meta name="twitter:description" content="Aashish Vivekanand is a Network and Cloud Security engineer based in Singapore." />
+        <meta name="twitter:image" content="https://aashishvanand.me/images/og_aashishvanand.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="K3aXNq-_6LfeYkJral_9_Kt8lFSTYwru-HM5iJeihLc" />
         <meta name="google-adsense-account" content="ca-pub-3745126880980552" />

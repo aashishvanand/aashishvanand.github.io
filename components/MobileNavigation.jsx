@@ -1,58 +1,69 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeContext } from './ThemeToggle';
-import { Menu, Close, LightMode, DarkMode } from '@mui/icons-material';
+// Inline SVG icons to avoid heavy MUI dependency
+const DarkModeIcon = ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z" />
+    </svg>
+);
+const LightModeIcon = ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
+    </svg>
+);
+const MenuIcon = ({ size = 24 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+    </svg>
+);
+const CloseIcon = ({ size = 24 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+    </svg>
+);
 import Image from 'next/image';
 import { LinkedIn, GitHub, Twitter, Blog, HackerOne } from './SocialIcons';
+
+// Animation variants defined outside component to avoid re-creation
+const menuVariants = {
+    closed: {
+        opacity: 0,
+        x: '100%',
+        transition: { type: 'spring', stiffness: 400, damping: 40 }
+    },
+    open: {
+        opacity: 1,
+        x: 0,
+        transition: { type: 'spring', stiffness: 400, damping: 40, staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+};
+
+const mobileItemVariants = {
+    closed: { opacity: 0, x: 20 },
+    open: { opacity: 1, x: 0 }
+};
+
+const navItems = [
+    { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Bounties', href: '#bounties' },
+    { name: 'Contact', href: 'mailto:aashishvanand@gmail.com?subject=Personal%20Message%20via%20Portfolio' }
+];
 
 export default function MobileNavigation() {
     const [isOpen, setIsOpen] = useState(false);
     const { theme, toggleTheme } = useContext(ThemeContext) || { theme: 'light', toggleTheme: () => { } };
     const starSrc = theme === 'dark' ? '/images/star-light.svg' : '/images/star.svg';
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+    const toggleMenu = useCallback(() => {
+        setIsOpen(prev => !prev);
+    }, []);
 
-    const navItems = [
-        { name: 'About', href: '#about' },
-        { name: 'Experience', href: '#experience' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Bounties', href: '#bounties' },
-        { name: 'Contact', href: 'mailto:aashishvanand@gmail.com?subject=Personal%20Message%20via%20Portfolio' }
-    ];
-
-    const menuVariants = {
-        closed: {
-            opacity: 0,
-            x: '100%',
-            transition: {
-                type: 'spring',
-                stiffness: 400,
-                damping: 40
-            }
-        },
-        open: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                type: 'spring',
-                stiffness: 400,
-                damping: 40,
-                staggerChildren: 0.1,
-                delayChildren: 0.2
-            }
-        }
-    };
-
-    const itemVariants = {
-        closed: { opacity: 0, x: 20 },
-        open: { opacity: 1, x: 0 }
-    };
-
-    const handleNavClick = (e, href) => {
+    const handleNavClick = useCallback((e, href) => {
         e.preventDefault();
-        toggleMenu(); // Close the menu
+        setIsOpen(false); // Close the menu
 
         // If it's an email link, just follow it
         if (href.startsWith('mailto:')) {
@@ -74,7 +85,9 @@ export default function MobileNavigation() {
                 });
             }
         }, 300);
-    };
+    }, []);
+
+    const handleStopPropagation = useCallback((e) => e.stopPropagation(), []);
 
     return (
         <>
@@ -85,9 +98,9 @@ export default function MobileNavigation() {
                     aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
                 >
                     {theme === 'light' ? (
-                        <DarkMode sx={{ fontSize: 20 }} />
+                        <DarkModeIcon size={20} />
                     ) : (
-                        <LightMode sx={{ fontSize: 20 }} />
+                        <LightModeIcon size={20} />
                     )}
                 </button>
 
@@ -96,7 +109,7 @@ export default function MobileNavigation() {
                     onClick={toggleMenu}
                     aria-label={isOpen ? 'Close menu' : 'Open menu'}
                 >
-                    {isOpen ? <Close sx={{ fontSize: 24 }} /> : <Menu sx={{ fontSize: 24 }} />}
+                    {isOpen ? <CloseIcon size={24} /> : <MenuIcon size={24} />}
                 </button>
             </div>
 
@@ -115,7 +128,7 @@ export default function MobileNavigation() {
                             initial="closed"
                             animate="open"
                             exit="closed"
-                            onClick={(e) => e.stopPropagation()}
+                            onClick={handleStopPropagation}
                         >
                             <div className="mobile-menu-header">
                                 <div className="logo">
@@ -127,14 +140,14 @@ export default function MobileNavigation() {
                                     onClick={toggleMenu}
                                     aria-label="Close menu"
                                 >
-                                    <Close sx={{ fontSize: 24 }} />
+                                    <CloseIcon size={24} />
                                 </button>
                             </div>
 
                             <nav className="mobile-menu-nav">
                                 <ul>
                                     {navItems.map((item) => (
-                                        <motion.li key={item.name} variants={itemVariants}>
+                                        <motion.li key={item.name} variants={mobileItemVariants}>
                                             <a  // This opening tag was missing
                                                 href={item.href}
                                                 onClick={(e) => handleNavClick(e, item.href)}
@@ -172,115 +185,6 @@ export default function MobileNavigation() {
                 )}
             </AnimatePresence>
 
-            <style jsx global>{`
-                .mobile-buttons {
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    z-index: 1001;
-                    display: flex;
-                    gap: 12px;
-                }
-                
-                .theme-toggle-mobile, .mobile-menu-toggle {
-                    background: var(--grey-900);
-                    color: white;
-                    border: none;
-                    width: 48px;
-                    height: 48px;
-                    border-radius: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    cursor: pointer;
-                }
-
-                .mobile-menu-overlay {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: rgba(0, 0, 0, 0.7);
-                    z-index: 1000;
-                    backdrop-filter: blur(3px);
-                }
-
-                .mobile-menu {
-                    position: fixed;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    width: 80%;
-                    max-width: 320px;
-                    background: var(--bg-color);
-                    padding: 24px;
-                    display: flex;
-                    flex-direction: column;
-                    z-index: 1001;
-                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-                }
-
-                .mobile-menu-header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 32px;
-                }
-
-                .mobile-menu-close {
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    color: var(--text-color);
-                }
-
-                .mobile-menu-nav {
-                    flex-grow: 1;
-                }
-
-                .mobile-menu-nav ul {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
-                }
-
-                .mobile-menu-link {
-                    display: block;
-                    padding: 16px 0;
-                    font-size: 1.25rem;
-                    font-weight: 500;
-                    text-decoration: none;
-                    color: var(--text-color);
-                    border-bottom: 1px solid var(--border-color);
-                }
-
-                .mobile-menu-social {
-                    margin-top: 32px;
-                }
-
-                .social-links {
-                    display: flex;
-                    gap: 16px;
-                    margin-top: 8px;
-                }
-
-                @media screen and (max-width: 767px) {
-                    .mobile-buttons {
-                        display: flex;
-                    }
-                    
-                    .navigation .row-btns {
-                        display: none;
-                    }
-                }
-                
-                @media screen and (min-width: 768px) {
-                    .mobile-buttons {
-                        display: none;
-                    }
-                }
-            `}</style>
         </>
     );
 }

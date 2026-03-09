@@ -7,13 +7,14 @@ export const useIconColor = () => {
     return theme === 'dark' ? "#ffffff" : "#000000";
 };
 
-export const ArrowUpRight = ({ size = 20, color = "currentColor" }) => (
+export const ArrowUpRight = React.memo(({ size = 20, color = "currentColor" }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M7 17L17 7M17 7H7M17 7V17" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
-);
+));
+ArrowUpRight.displayName = 'ArrowUpRight';
 
-export const LinkedIn = ({ size = 20, color = "currentColor" }) => {
+export const LinkedIn = React.memo(({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
         <svg width={size} height={size} viewBox="-143 145 512 512" fill={color === "currentColor" ? iconColor : color} xmlns="http://www.w3.org/2000/svg">
@@ -24,9 +25,10 @@ export const LinkedIn = ({ size = 20, color = "currentColor" }) => {
       "/>
         </svg>
     );
-};
+});
+LinkedIn.displayName = 'LinkedIn';
 
-export const GitHub = ({ size = 20, color = "currentColor" }) => {
+export const GitHub = React.memo(({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
         <svg width={size} height={size} viewBox="-143 145 512 512" fill={color === "currentColor" ? iconColor : color} xmlns="http://www.w3.org/2000/svg">
@@ -46,9 +48,10 @@ export const GitHub = ({ size = 20, color = "currentColor" }) => {
             </g>
         </svg>
     );
-};
+});
+GitHub.displayName = 'GitHub';
 
-export const StackOverflow = ({ size = 20, color = "currentColor" }) => {
+export const StackOverflow = React.memo(({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
         <svg
@@ -74,9 +77,10 @@ export const StackOverflow = ({ size = 20, color = "currentColor" }) => {
             />
         </svg>
     );
-};
+});
+StackOverflow.displayName = 'StackOverflow';
 
-export const NPM = ({ size = 20, color = "currentColor" }) => {
+export const NPM = React.memo(({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
         <svg
@@ -97,9 +101,10 @@ export const NPM = ({ size = 20, color = "currentColor" }) => {
             />
         </svg>
     );
-};
+});
+NPM.displayName = 'NPM';
 
-export const Facebook = ({ size = 20, color = "currentColor" }) => {
+export const Facebook = React.memo(({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
         <svg width={size} height={size} viewBox="-143 145 512 512" fill={color === "currentColor" ? iconColor : color} xmlns="http://www.w3.org/2000/svg">
@@ -108,9 +113,10 @@ export const Facebook = ({ size = 20, color = "currentColor" }) => {
         c0,0-11-3.2-21.3-3.2c-10.3,0-19.5,3.7-19.5,14v29.9H169.5z"/>
         </svg>
     );
-};
+});
+Facebook.displayName = 'Facebook';
 
-export const Twitter = ({ size = 20, color = "currentColor" }) => {
+export const Twitter = React.memo(({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
         <svg width={size} height={size} viewBox="-143 145 512 512" fill={color === "currentColor" ? iconColor : color} xmlns="http://www.w3.org/2000/svg">
@@ -122,9 +128,10 @@ export const Twitter = ({ size = 20, color = "currentColor" }) => {
         c12-2.4,23.2-6.7,33.4-12.8c-3.9,12.3-12.3,22.6-23.1,29.1c10.6-1.3,20.8-4.1,30.2-8.3C234.4,344.5,225.5,353.7,215.2,361.2z"/>
         </svg>
     );
-};
+});
+Twitter.displayName = 'Twitter';
 
-export const Instagram = ({ size = 20, color = "currentColor" }) => {
+export const Instagram = React.memo(({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
         <svg width={size} height={size} viewBox="-143 145 512 512" fill={color === "currentColor" ? iconColor : color} xmlns="http://www.w3.org/2000/svg">
@@ -140,22 +147,25 @@ export const Instagram = ({ size = 20, color = "currentColor" }) => {
             </g>
         </svg>
     );
-};
+});
+Instagram.displayName = 'Instagram';
 
-export const Blog = ({ size = 20, color = "currentColor" }) => {
+export const Blog = React.memo(({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
         <svg width={size} height={size} viewBox="-2 -4 24 24" fill={color === "currentColor" ? iconColor : color} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin">
             <path d='M2.372 3.264a.784.784 0 0 0-.252-.658L.252.339V0H6.05l4.482 9.905L14.472 0H20v.339L18.403 1.88a.472.472 0 0 0-.177.452v11.334a.472.472 0 0 0 .177.452l1.56 1.542V16H12.12v-.339l1.615-1.58c.159-.16.159-.207.159-.451V4.468L9.402 15.962h-.606L3.566 4.468v7.704c-.043.324.064.65.29.884l2.101 2.568v.338H0v-.338l2.1-2.568a1.03 1.03 0 0 0 .272-.884V3.264z' />
         </svg>
     );
-};
+});
+Blog.displayName = 'Blog';
 
-export const HackerOne = ({ size = 20, color = "currentColor" }) => {
+export const HackerOne = React.memo(({ size = 20, color = "currentColor" }) => {
     const iconColor = useIconColor();
     return (
         <svg width={size} height={size} viewBox="0 0 32 32" fill={color === "currentColor" ? iconColor : color} xmlns="http://www.w3.org/2000/svg">
             <path d="M21.911 11.829c-0.038-0.002-0.082-0.003-0.126-0.003-0.494 0-0.955 0.141-1.345 0.385l0.011-0.006-5.547 3.477c-0.205 0.218-0.331 0.513-0.331 0.837 0 0.082 0.008 0.162 0.023 0.239l-0.001-0.008c0.065 0.535 0.303 1.006 0.655 1.363l-0-0c0.342 0.396 0.798 0.685 1.318 0.814l0.018 0.004c0.118 0.043 0.253 0.067 0.395 0.067 0.274 0 0.527-0.093 0.728-0.248l-0.003 0.002 2.193-1.368v12.224c0.027 0.403 0.249 0.749 0.571 0.948l0.005 0.003c0.372 0.274 0.84 0.439 1.346 0.439 0.032 0 0.064-0.001 0.096-0.002l-0.005 0c0.020 0.001 0.043 0.001 0.066 0.001 0.534 0 1.030-0.164 1.44-0.444l-0.009 0.006c0.351-0.189 0.594-0.538 0.632-0.946l0-0.005v-16.434c-0.009-0.422-0.253-0.786-0.606-0.966l-0.006-0.003c-0.404-0.238-0.89-0.378-1.409-0.378-0.038 0-0.076 0.001-0.114 0.002l0.005-0zM10.010 1.004c-0.033-0.001-0.072-0.002-0.111-0.002-0.505 0-0.977 0.14-1.379 0.384l0.012-0.007c-0.342 0.197-0.569 0.559-0.574 0.974v27.254c0.031 0.406 0.259 0.753 0.588 0.948l0.006 0.003c0.383 0.274 0.86 0.439 1.376 0.439 0.029 0 0.057-0 0.085-0.002l-0.004 0c0.014 0 0.030 0 0.047 0 0.528 0 1.017-0.164 1.421-0.443l-0.008 0.005c0.351-0.189 0.594-0.538 0.632-0.946l0-0.005v-27.251c-0.009-0.424-0.252-0.79-0.605-0.973l-0.006-0.003c-0.402-0.237-0.886-0.376-1.402-0.376-0.027 0-0.055 0-0.082 0.001l0.004-0z"></path>
         </svg>
     );
-};
+});
+HackerOne.displayName = 'HackerOne';

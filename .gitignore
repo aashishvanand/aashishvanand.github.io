@@ -7,12 +7,17 @@
 # testing
 /coverage
 
-# next.js
+# next.js / vinext
 /.next/
 /out/
 
 # production
 /build
+/dist/
+
+# cloudflare
+.wrangler/
+.dev.vars
 
 # misc
 .DS_Store
@@ -29,6 +34,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# vinext / vite
+*.local
 
 # typescript
 *.tsbuildinfo

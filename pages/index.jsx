@@ -4,23 +4,24 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import ProjectSection from '../components/ProjectSection';
 
+// Defined outside component to avoid re-creation on every render
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: [0.19, 1, 0.22, 1]
+        }
+    }
+};
+
 export default function Home() {
     // Animation controls for the about section
     const aboutRef = useRef(null);
     const aboutInView = useInView(aboutRef, { once: true, margin: "-100px 0px" });
     const aboutControls = useAnimation();
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: [0.19, 1, 0.22, 1]
-            }
-        }
-    };
 
     useEffect(() => {
         if (aboutInView) {
@@ -191,7 +192,7 @@ export default function Home() {
                     <h3 className="display-sm">US Consulate Hackathon</h3>
                     <p>1st Place in Cyber-security Hackathon 2016, conducted by the US Consulate and Learning Links Foundation across India<br />SMART App: This Android app creates a 14-layer secured environment to stream videos. Users of the app are
                         neither allowed to capture the screen nor programmatically record the video; if force recorded, it will be a blank screen. The app does not work on a rooted device or an emulator. The app won first place in the Cyber-Security
-                        Hackathon (US Consulate &amp; LLF) - <a href="https://bit.ly/hindusmartapp" target="_blank" rel="noopener noreferrer" className="link-no-underline">The Hindu News Article</a><br /></p>
+                        Hackathon (US Consulate &amp; LLF) - <a href="https://www.thehindu.com/news/cities/chennai/Students-get-exposure-to-cyber-security-issues/article14502599.ece" target="_blank" rel="noopener noreferrer" className="link-no-underline">The Hindu News Article</a><br /></p>
                 </motion.div>
 
                 <motion.div className="row row-split-content" variants={itemVariants}>
@@ -208,14 +209,14 @@ export default function Home() {
             <ProjectSection title="Media Coverage" delay={0.6}>
                 <motion.div className="row row-split-content" variants={itemVariants}>
                     <h3>Dinathanthi (தினத்தந்தி)</h3>
-                    <p className="paragraph link-no-underline"><a href="https://bit.ly/DinathanthiChennaiBoyWinsHackathon" className="link-no-underline">dtNEXT Dt:23-August-2016 Pg:6</a><br /></p>
-                    <p className="paragraph"><a href="https://bit.ly/dtnexttrafficmanagement" className="link-no-underline">dtNEXT Dt:21-September-2016 Pg:2</a><br /></p>
+                    <p className="paragraph link-no-underline"><a href="https://drive.google.com/file/d/0BwH2bLk1_X5rT3c2TmxET3h6TjQ/view?usp=sharing&resourcekey=0-FnoatwejunbZsc4RItY0ig" target="_blank" rel="noopener noreferrer" className="link-no-underline">dtNEXT Dt:23-August-2016 Pg:6</a><br /></p>
+                    <p className="paragraph"><a href="https://www.dtnext.in/city/2016/09/20/engineering-students-professor-develop-traffic-management-system" target="_blank" rel="noopener noreferrer" className="link-no-underline">dtNEXT Dt:21-September-2016 Pg:2</a><br /></p>
                 </motion.div>
 
                 <motion.div className="row row-split-content" variants={itemVariants}>
-                    <h3 className="display-sm"><a href="https://bit.ly/hindusmartapp" target="_blank" rel="noopener noreferrer" className="link-no-underline">The Hindu Newspaper</a></h3>
-                    <p><a href="https://bit.ly/hindusmartapp" target="_blank" rel="noopener noreferrer" className="link-no-underline">Student gets exposure to Cyber security Issues - The Hindu(Chennai Edition) Dt:22-July-2016</a><br /></p>
-                    <p><a href="https://bit.ly/hindustudentwinscybersecurityhackathon" target="_blank" rel="noopener noreferrer" className="link-no-underline">Student Wins Cyber Security Hackathon - The Hindu - 12-September-2016 - Pg:7</a><br /></p>
+                    <h3 className="display-sm"><a href="https://www.thehindu.com/news/cities/chennai/Students-get-exposure-to-cyber-security-issues/article14502599.ece" target="_blank" rel="noopener noreferrer" className="link-no-underline">The Hindu Newspaper</a></h3>
+                    <p><a href="https://www.thehindu.com/news/cities/chennai/Students-get-exposure-to-cyber-security-issues/article14502599.ece" target="_blank" rel="noopener noreferrer" className="link-no-underline">Student gets exposure to Cyber security Issues - The Hindu(Chennai Edition) Dt:22-July-2016</a><br /></p>
+                    <p><a href="https://drive.google.com/file/d/0BwH2bLk1_X5rLWxnZnJHY0NJSm8/view?usp=sharing&resourcekey=0-ju0IQQRyAOSBWr5RAv6XlA" target="_blank" rel="noopener noreferrer" className="link-no-underline">Student Wins Cyber Security Hackathon - The Hindu - 12-September-2016 - Pg:7</a><br /></p>
                 </motion.div>
 
                 <motion.div className="row row-split-content" variants={itemVariants}>

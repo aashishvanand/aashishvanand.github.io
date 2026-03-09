@@ -10,12 +10,20 @@ export default function Layout({ children }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate preloader timing similar to the original site
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 3000);
-
-        return () => clearTimeout(timer);
+        // Use actual page load state with a max 1.5s cap
+        const onReady = () => setLoading(false);
+        if (document.readyState === 'complete') {
+            // If already loaded, show preloader briefly for the animation
+            const timer = setTimeout(onReady, 800);
+            return () => clearTimeout(timer);
+        }
+        window.addEventListener('load', onReady);
+        // Fallback: never block content for more than 1.5s
+        const fallback = setTimeout(onReady, 1500);
+        return () => {
+            window.removeEventListener('load', onReady);
+            clearTimeout(fallback);
+        };
     }, []);
 
     return (
@@ -32,7 +40,7 @@ export default function Layout({ children }) {
                 initial={{ opacity: 0 }}
                 animate={{
                     opacity: loading ? 0 : 1,
-                    transition: { duration: 1.5, delay: 0.5 }
+                    transition: { duration: 0.8, delay: 0.1 }
                 }}
             >
                 <Header />
@@ -46,23 +54,6 @@ export default function Layout({ children }) {
             <a href="#main-content" className="skip-to-content">
                 Skip to content
             </a>
-            
-            <style jsx global>{`
-                .skip-to-content {
-                    position: absolute;
-                    top: -40px;
-                    left: 0;
-                    background: var(--primary-500);
-                    color: white;
-                    padding: 8px;
-                    z-index: 1001;
-                    transition: top 0.3s;
-                }
-                
-                .skip-to-content:focus {
-                    top: 0;
-                }
-            `}</style>
         </>
     );
 }
