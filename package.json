@@ -21,10 +21,10 @@
         "vinext": "^0.0.26"
     },
     "devDependencies": {
-        "@cloudflare/vite-plugin": "^1.26.1",
+        "@cloudflare/vite-plugin": "^1.29.1",
         "eslint": "^10.0.2",
         "eslint-config-next": "^16.1.6",
         "vite": "^7.3.1",
-        "wrangler": "^4.71.0"
+        "wrangler": "^4.75.0"
     }
 }
